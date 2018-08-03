@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 
 import com.maurosarti.checkrootdevicetest.RootBeer.util.QLog;
+import com.maurosarti.checkrootdevicetest.RootBeer.util.Utils;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -42,7 +43,8 @@ public class RootBeer {
 
         return detectRootManagementApps() || detectPotentiallyDangerousApps() || checkForBinary("su")
                 || checkForBinary("busybox") || checkForDangerousProps() || checkForRWPaths()
-                || detectTestKeys() || checkSuExists() || checkForRootNative() || checkForMagiskBinary();
+                || detectTestKeys() || checkSuExists() || checkForRootNative() || checkForMagiskBinary()
+                || Utils.isSelinuxFlagInEnabled();
     }
 
     /**

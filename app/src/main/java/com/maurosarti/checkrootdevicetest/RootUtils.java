@@ -12,12 +12,12 @@ public class RootUtils {
         return checkRootMethod1() || checkRootMethod2() || checkRootMethod3() || checkRootMethod4();
     }
 
-    private static boolean checkRootMethod1() {
+    public static boolean checkRootMethod1() {
         String buildTags = android.os.Build.TAGS;
         return buildTags != null && buildTags.contains("test-keys");
     }
 
-    private static boolean checkRootMethod2() {
+    public static boolean checkRootMethod2() {
         String[] paths = { "/data/local/bin/su",
                 "/data/local/su",
                 "/data/local/xbin/su",
@@ -37,7 +37,7 @@ public class RootUtils {
         return false;
     }
 
-    private static boolean checkRootMethod3() {
+    public static boolean checkRootMethod3() {
         Process process = null;
         try {
             List<String> commands = new ArrayList<>();
@@ -67,7 +67,7 @@ public class RootUtils {
         }
     }
 
-    private static boolean checkRootMethod4() {
+    public static boolean checkRootMethod4() {
         // get from build info
         String buildTags = android.os.Build.TAGS;
         if (buildTags != null && buildTags.contains("test-keys")) {
